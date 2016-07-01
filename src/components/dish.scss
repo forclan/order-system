@@ -1,0 +1,46 @@
+@mixin img-size($size) {
+  background-size: $size;
+  width: $size;
+  height: $size;
+}
+.dish {
+  display: flex;
+  padding: 0.4rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  align-items: space-between;
+  .dish-img {
+    // align-self: flex-start;
+    margin: 0.2rem;
+  }
+  .dish-text {
+    flex-grow: 1;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    .dish-price {
+      .price-text {
+        color: red;
+        // font-size: 1.1rem;
+      }
+    }
+  }
+
+  .dish-button {
+    display: flex;
+    .dish-button-add {
+      background-image: url('../assets/add.png');
+      @include img-size(1.5rem);
+    }
+    .order-num {
+      align-self: center;
+      padding:  0 0.5rem;
+    }
+    .dish-button-minus {
+      background-image: url('../assets/minus.png');
+      @include img-size(1.5rem);
+    }
+  }
+};
