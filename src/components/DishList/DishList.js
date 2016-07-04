@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Dish from '../Dish/Dish.js';
+require('./dishList.scss');
 
 const DishList = (props) => {
   const dishList = props.dishList;
@@ -15,8 +16,13 @@ const DishList = (props) => {
     />
   );
   return (
-    <div>
-      {dishListDOM}
+    <div className="dish-list">
+      <div className="dish-category">
+        {props.dishCategory}
+      </div>
+      <div>
+        {dishListDOM}
+      </div>
     </div>
   );
 };
@@ -24,6 +30,7 @@ DishList.propTypes = {
   dishList: PropTypes.array.isRequired,
   clickAdd: PropTypes.func.isRequired,
   clickMinus: PropTypes.func.isRequired,
+  dishCategory: PropTypes.string.isRequired,
 };
 
 export default DishList;

@@ -12,7 +12,12 @@ const App = (props) => {
     dishArray = props.dishArrayWithOrderNum;
   }
   return (
-    <DishList dishList={dishArray} clickAdd={props.addOrderBy1} clickMinus={props.minusOrderBy1} />
+    <DishList
+      dishList={dishArray}
+      clickAdd={props.addOrderBy1}
+      clickMinus={props.minusOrderBy1}
+      dishCategory="lunch"
+    />
   );
 };
 
