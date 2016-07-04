@@ -8,6 +8,7 @@ const CategoryBar = (props) => {
     <CategoryBlock
       category={val}
       fucus={currentCategory === val}
+      key={val}
     />
   );
   return (
