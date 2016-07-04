@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 require('./dish.scss');
 
 const Dish = (props) => {
-  const { price, imgSrc, description, name, number } = props;
+  const { price, imgSrc, description, name, number, clickAdd, clickMinus } = props;
   return (
     <div className="dish" >
       <div className="dish-img" >
@@ -25,7 +25,7 @@ const Dish = (props) => {
         <div className="dish-button">
           {
             number > 0 ?
-              <div className="dish-button-minus">
+              <div className="dish-button-minus" onClick={clickMinus}>
               </div> :
               null
           }
@@ -36,7 +36,7 @@ const Dish = (props) => {
               </div> :
             null
           }
-          <div className="dish-button-add">
+          <div className="dish-button-add" onClick={clickAdd}>
           </div>
         </div>
       </div>
@@ -49,6 +49,9 @@ Dish.propTypes = {
   price: PropTypes.number.isRequired,
   imgSrc: PropTypes.string.isRequired,
   description: PropTypes.string,
+  number: PropTypes.number.isRequired,
+  clickAdd: PropTypes.func.isRequired,
+  clickMinus: PropTypes.func.isRequired,
 };
 
 export default Dish;

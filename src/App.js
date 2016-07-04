@@ -1,28 +1,27 @@
 import React, { PropTypes } from 'react';
-import Dish from './components/Dish.js';
-import addOrder from './actions/addOrder.js';
+// import Dish from './components/Dish.js';
+import DishList from './components/DishList/DishList';
+import { addOrder } from './actions/addOrder.js';
 import { connect } from 'react-redux';
 
 const App = (props) => {
-  let order1 = null;
+  // let order1 = null;
+  let dishArray = [];
   if (props.dishArray.length > 0) {
-    order1 = props.dishArray[0];
+    // order1 = props.dishArray[0];
+    dishArray = props.dishArrayWithOrderNum;
   }
   return (
-    <div>
-      <Dish
-        imgSrc={"./assets/minus.png"}
-        price={order1.price}
-        description="very good"
-        name={order1.name}
-        number={10}
-      />
-    </div>);
+    <DishList dishList={dishArray} clickAdd={props.addOrderBy1} clickMinus={props.minusOrderBy1} />
+  );
 };
 
 App.propTypes = {
   orders: PropTypes.array.isRequired,
   dishArray: PropTypes.array.isRequired,
+  addOrderBy1: PropTypes.func.isRequired,
+  minusOrderBy1: PropTypes.func.isRequired,
+  dishArrayWithOrderNum: PropTypes.array.isRequired,
 };
 
 const getDishArray = arr => arr;
@@ -43,10 +42,23 @@ const getOrder = obj => {
   }
   return asserts;
 };
+const getDishWithOrderNum = (dishArr, orders) => {
+  const dishArrWithOrderNum = dishArr.map(val => {
+    let orderNum = 0;
+    if (orders[val.name]) {
+      orderNum = orders[val.name];
+    }
+    const tmpVal = Object.assign({}, val);
+    tmpVal.number = orderNum;
+    return tmpVal;
+  });
+  return dishArrWithOrderNum;
+};
 
 const mapStateToProps = (state) => ({
   orders: getOrder(state.DishReducer.dishArray),
   dishArray: getDishArray(state.DishReducer),
+  dishArrayWithOrderNum: getDishWithOrderNum(state.DishReducer, state.OrderReducer),
 });
 
 const mapDispatchToProps = (dispatch) => ({
