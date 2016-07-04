@@ -13,6 +13,7 @@ const DishList = (props) => {
       number={val.number}
       clickAdd={() => props.clickAdd(val.name)}
       clickMinus={() => props.clickMinus(val.name)}
+      key={val.name}
     />
   );
   return (

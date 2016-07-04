@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
-// import Dish from './components/Dish.js';
 import DishList from './components/DishList/DishList';
+import CategoryBar from './components/CategoryBar/CategoryBar';
 import { addOrder } from './actions/addOrder.js';
 import { connect } from 'react-redux';
 
+const cat = ['lunch', 'tea', 'hot-drinks'];
 const App = (props) => {
   // let order1 = null;
   let dishArray = [];
@@ -12,12 +13,18 @@ const App = (props) => {
     dishArray = props.dishArrayWithOrderNum;
   }
   return (
-    <DishList
-      dishList={dishArray}
-      clickAdd={props.addOrderBy1}
-      clickMinus={props.minusOrderBy1}
-      dishCategory="lunch"
-    />
+    <div>
+      <DishList
+        dishList={dishArray}
+        clickAdd={props.addOrderBy1}
+        clickMinus={props.minusOrderBy1}
+        dishCategory="lunch"
+      />
+      <CategoryBar
+        categories={cat}
+        currentCategory="lunch"
+      />
+    </div>
   );
 };
 
