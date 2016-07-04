@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import Dish from '../Dish/Dish.js';
-// import { addOrder } from '../../actions/addOrder.js';
 
 const DishList = (props) => {
   const dishList = props.dishList;

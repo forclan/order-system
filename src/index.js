@@ -5,7 +5,6 @@ import { createStore, compose } from 'redux';
 import reducers from './reducer/index.js';
 import App from './App.js';
 
-// console.log(reducers.getState());
 let store = createStore(reducers, compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));

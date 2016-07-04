@@ -1,7 +1,6 @@
 import OrderReducer from './OrderReducer.js';
 import DishReducer from './DishReducer.js';
 import { combineReducers } from 'redux';
-// import { createStore } from 'redux';
 
 const AppReducer = combineReducers({
   OrderReducer,

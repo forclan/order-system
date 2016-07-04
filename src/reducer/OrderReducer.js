@@ -1,12 +1,8 @@
 import { ADD_ORDER } from '../actions/addOrder.js';
 
 const OrderList = (state = {}, action) => {
-  console.log(state);
-  console.log(action.type);
-  console.log(ADD_ORDER);
   switch (action.type) {
     case ADD_ORDER: {
-      console.log('in addOrder');
       let nextState = null;
       const id = action.id;
       nextState = Object.assign({}, state);
