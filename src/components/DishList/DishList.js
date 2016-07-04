@@ -18,7 +18,9 @@ const DishList = (props) => {
   return (
     <div className="dish-list">
       <div className="dish-category">
-        {props.dishCategory}
+        <a href={`#${props.dishCategory}`}>
+          {props.dishCategory}
+        </a>
       </div>
       <div>
         {dishListDOM}

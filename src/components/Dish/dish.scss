@@ -3,6 +3,12 @@
   width: $size;
   height: $size;
 }
+@mixin active-img($size) {
+  @include img-size($size);
+  &:active {
+    @include img-size($size + 0.5rem);
+  }
+}
 .dish {
   display: flex;
   padding: 0.4rem;
@@ -32,7 +38,7 @@
     display: flex;
     .dish-button-add {
       background-image: url('../../assets/add.png');
-      @include img-size(1.5rem);
+      @include active-img(1.5rem);
     }
     .order-num {
       align-self: center;

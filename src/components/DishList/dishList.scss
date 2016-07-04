@@ -1,6 +1,10 @@
 .dish-list {
   .dish-category {
-    padding: 0.2rem;
-    background-color: rgb(201, 199, 204);
+    padding: 0.2rem 0.2rem 0.2rem 0.4rem;
+    background-color: rgb(231, 235, 240);
+    a {
+      color: black;
+      text-decoration: none;
+    }
   }
 }
