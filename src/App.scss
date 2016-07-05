@@ -1,0 +1,17 @@
+.order-view-container {
+  display: flex;
+}
+
+@media (max-width: 700px) {
+  .order-view {
+    flex-direction: row;
+    .category-container {
+      flex-grow: 0;
+    }
+  }
+}
+@media (min-width: 700px) {
+  .order-view-container {
+    flex-direction: column;
+  }
+}

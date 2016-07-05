@@ -1,0 +1,35 @@
+.category-container {
+  display: flex;
+  // width: 100%;
+  // justify-content: space-between;
+  .category-with-hr {
+    display: flex;
+    padding: 0.5rem;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    .category {
+
+      a {
+        text-decoration: none;
+        color: rgb(146, 152, 223);
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+}
+@media (max-width: 700px) {
+  .category-container {
+    // height: 100%;
+    // width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 700px) {
+  .category-container {
+    width: 100%;
+    flex-direction: row;
+  }
+}

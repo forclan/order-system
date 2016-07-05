@@ -3,6 +3,7 @@ import DishList from './components/DishList/DishList';
 import CategoryBar from './components/CategoryBar/CategoryBar';
 import { addOrder } from './actions/addOrder.js';
 import { connect } from 'react-redux';
+require('./App.scss');
 
 const cat = ['lunch', 'tea', 'hot-drinks'];
 const App = (props) => {
@@ -13,16 +14,16 @@ const App = (props) => {
     dishArray = props.dishArrayWithOrderNum;
   }
   return (
-    <div>
+    <div className="order-view-container">
+      <CategoryBar
+        categories={cat}
+        currentCategory="lunch"
+      />
       <DishList
         dishList={dishArray}
         clickAdd={props.addOrderBy1}
         clickMinus={props.minusOrderBy1}
         dishCategory="lunch"
-      />
-      <CategoryBar
-        categories={cat}
-        currentCategory="lunch"
       />
     </div>
   );
