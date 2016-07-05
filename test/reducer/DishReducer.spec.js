@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import dishReducer from '../../src/reducer/DishReducer';
+import initialState from '../../src/reducer/DishInitialState';
 
 describe('Dish Recuder', () => {
   it('should return the initial state', () => {
@@ -7,15 +8,7 @@ describe('Dish Recuder', () => {
       dishReducer(undefined, {})
     )
       .to.eql(
-      [{
-        id: 1,
-        name: 'apple',
-        price: 10,
-      }, {
-        id: 2,
-        name: 'peach',
-        price: 11,
-      }]
+        initialState
       );
   });
 });

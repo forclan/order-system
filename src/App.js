@@ -8,10 +8,8 @@ require('./App.scss');
 
 const cat = ['lunch', 'tea', 'hot-drinks', '1', '2', '3', '4', '5', '6'];
 const App = (props) => {
-  // let order1 = null;
   let dishArray = [];
   if (props.dishArray.length > 0) {
-    // order1 = props.dishArray[0];
     dishArray = props.dishArrayWithOrderNum;
   }
   return (
