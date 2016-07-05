@@ -3,9 +3,10 @@ import DishList from './components/DishList/DishList';
 import CategoryBar from './components/CategoryBar/CategoryBar';
 import { addOrder } from './actions/addOrder.js';
 import { connect } from 'react-redux';
+import ShoppingCart from './components/Cart/Cart';
 require('./App.scss');
 
-const cat = ['lunch', 'tea', 'hot-drinks'];
+const cat = ['lunch', 'tea', 'hot-drinks', '1', '2', '3', '4', '5', '6'];
 const App = (props) => {
   // let order1 = null;
   let dishArray = [];
@@ -14,16 +15,23 @@ const App = (props) => {
     dishArray = props.dishArrayWithOrderNum;
   }
   return (
-    <div className="order-view-container">
+    <div>
       <CategoryBar
         categories={cat}
         currentCategory="lunch"
       />
-      <DishList
-        dishList={dishArray}
+      <div className="order-view-container">
+        <DishList
+          dishList={dishArray}
+          clickAdd={props.addOrderBy1}
+          clickMinus={props.minusOrderBy1}
+          dishCategory="lunch"
+        />
+      </div>
+      <ShoppingCart
+        orderArray={props.dishArrayWithOrderNum}
         clickAdd={props.addOrderBy1}
         clickMinus={props.minusOrderBy1}
-        dishCategory="lunch"
       />
     </div>
   );

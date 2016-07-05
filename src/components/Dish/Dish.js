@@ -2,13 +2,21 @@ import React, { PropTypes } from 'react';
 require('./dish.scss');
 
 const Dish = (props) => {
-  const { price, imgSrc, description, name, number, clickAdd, clickMinus } = props;
+  const { price, imgSrc, description, name, number, clickAdd, clickMinus, isDirectionRow } = props;
+  let dishTextDirection = 'dish-text-column';
+  if (isDirectionRow) {
+    dishTextDirection = 'dish-text-row';
+  }
   return (
     <div className="dish" >
-      <div className="dish-img" >
-        <img src={imgSrc} role="presentation" width="100" height="100" />
-      </div>
-      <div className="dish-text" >
+      {
+        imgSrc ?
+          <div className="dish-img" >
+            <img src={imgSrc} role="presentation" width="100" height="100" />
+          </div> :
+          null
+      }
+      <div className={dishTextDirection} >
         <div className="dish-name">
           {name}
         </div>
@@ -52,6 +60,7 @@ Dish.propTypes = {
   number: PropTypes.number.isRequired,
   clickAdd: PropTypes.func.isRequired,
   clickMinus: PropTypes.func.isRequired,
+  isDirectionRow: PropTypes.boolean,
 };
 
 export default Dish;

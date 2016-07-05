@@ -6,7 +6,21 @@
 @mixin active-img($size) {
   @include img-size($size);
   &:active {
-    @include img-size($size + 0.5rem);
+    @include img-size($size + 0.2rem);
+  }
+}
+@mixin dish-text-flex-direction($direction) {
+  flex-grow: 1;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+  justify-content: space-between;
+  .dish-price {
+    .price-text {
+      color: red;
+      // font-size: 1.1rem;
+    }
   }
 }
 .dish {
@@ -15,23 +29,17 @@
   border: 1px solid rgb(222, 221, 228);
   border-radius: 3px;
   align-items: space-between;
+  margin: 5px 0 0 ;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   .dish-img {
     // align-self: flex-start;
     margin: 0.2rem;
   }
-  .dish-text {
-    flex-grow: 1;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    .dish-price {
-      .price-text {
-        color: red;
-        // font-size: 1.1rem;
-      }
-    }
+  .dish-text-column {
+    @include dish-text-flex-direction(column);
+  }
+  .dish-text-row {
+    @include dish-text-flex-direction(row);
   }
 
   .dish-button {
