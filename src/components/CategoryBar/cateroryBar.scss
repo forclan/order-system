@@ -2,19 +2,20 @@
   display: flex;
   // width: 100%;
   // justify-content: space-between;
-  .category-with-hr {
+
+  .category {
     display: flex;
     padding: 0.5rem;
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    .category {
-
-      a {
-        text-decoration: none;
-        color: rgb(146, 152, 223);
-        font-size: 1.2rem;
-      }
+    border-style: dashed;
+    // border-width: thin;
+    border-color: rgba(208, 203, 209, 0.82);
+    a {
+      text-decoration: none;
+      color: rgb(146, 152, 223);
+      font-size: 1.2rem;
     }
   }
 
@@ -24,6 +25,10 @@
     // height: 100%;
     // width: 100%;
     flex-direction: column;
+    .category {
+      // border-bottom: 1px;
+      border-width: 0 0 1px 0;
+    }
   }
 }
 
@@ -31,5 +36,8 @@
   .category-container {
     width: 100%;
     flex-direction: row;
+    .category {
+      border-width: 0 1px 0 0;
+    }
   }
 }

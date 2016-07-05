@@ -6,14 +6,11 @@ const CategoryBar = (props) => {
   const categoriesArr = props.categories;
   const currentCategory = props.currentCategory;
   const categoryDOMArr = categoriesArr.map(val =>
-    <div className="category-with-hr">
-      <CategoryBlock
-        category={val}
-        fucus={currentCategory === val}
-        key={val}
-      />
-      <hr />
-    </div>
+    <CategoryBlock
+      category={val}
+      fucus={currentCategory === val}
+      key={val}
+    />
   );
   return (
     <div className="category-container">
