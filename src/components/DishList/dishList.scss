@@ -1,11 +1,11 @@
 .dish-list {
   flex-grow: 3;
+  background-color: rgba(18, 167, 113, 0.75);
   .dish-category {
     padding: 0.2rem 0.2rem 0.2rem 0.4rem;
-    background-color: rgb(231, 235, 240);
+    border-radius: 0.3rem;
     a {
       color: black;
-      // text-decoration: none;
       text-decoration: none;
     }
   }

@@ -5,6 +5,9 @@
 ::-webkit-scrollbar {
     display: none;
 }
+body {
+  background-color: rgba(146, 240, 203, 0.88);
+}
 .order-view-container {
   display: flex;
   padding-bottom: $footerHeight + 0.5rem;

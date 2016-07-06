@@ -29,8 +29,9 @@
   border: 1px solid rgb(222, 221, 228);
   border-radius: 3px;
   align-items: space-between;
-  margin: 5px 0 0 ;
+  margin: 0.5rem 0 0.5rem;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: white;
   .dish-img {
     // align-self: flex-start;
     margin: 0.2rem;
@@ -41,7 +42,9 @@
   .dish-text-row {
     @include dish-text-flex-direction(row);
   }
-
+  &:hover {
+    box-shadow: 2px 2px 4px 4px rgb(119, 117, 114);
+  }
   .dish-button {
     display: flex;
     .dish-button-add {

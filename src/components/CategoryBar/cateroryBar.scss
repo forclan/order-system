@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   border-style: dashed;
-  background-color: rgb(170, 165, 166);
+  background-color: rgba(69, 187, 102, 0.74);
   border-color: rgb(247, 244, 249);
   a {
     text-decoration: none;
@@ -18,10 +18,6 @@
 .category-container {
   display: flex;
   box-shadow: 2px 2px 2px 2px rgba(123, 125, 119, 0.95);
-  // hide the scrollbar
-  // &::-webkit-scrollbar {
-  //   display: none;
-  // }
 
   .category {
     @include category-default();
@@ -48,7 +44,7 @@
     .category-current {
       border-width: 0 0 1px 0;
       flex-shrink: 0;
-      background-color: rgba(224, 237, 235, 0.9);
+      background-color: rgba(19, 228, 147, 0.82);
       border-color: rgb(28, 27, 27);
     }
   }
@@ -64,7 +60,7 @@
       border-width: 0 1px 0 0;
     }
     .category-current {
-      background-color: rgba(224, 237, 235, 0.9);
+      background-color: rgba(19, 228, 147, 0.82);
       border-width: 0 1px 0 0;
       border-color: rgb(28, 27, 27);
     }
