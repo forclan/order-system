@@ -8,7 +8,7 @@ const CategoryBar = (props) => {
   const categoryDOMArr = categoriesArr.map(val =>
     <CategoryBlock
       category={val}
-      fucus={currentCategory === val}
+      focus={currentCategory === val}
       key={val}
     />
   );

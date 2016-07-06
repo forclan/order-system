@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const CategoryBlock = (props) => (
   <div
-    className={props.focus ? 'category-fucus' : 'category'}
+    className={props.focus ? 'category-current' : 'category'}
     key={props.category}
   >
     <a href={`#${props.category}`}>

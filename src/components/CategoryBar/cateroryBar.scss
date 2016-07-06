@@ -1,41 +1,55 @@
-@import "../../const/footerBarHeight.scss";
-.category-container {
+@import "../../const/constVaule.scss";
+@mixin category-default() {
   display: flex;
-  // hide the scrollbar
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  .category {
-    display: flex;
-    padding: 0.5rem;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    border-style: dashed;
-    border-color: rgba(208, 203, 209, 0.82);
-    a {
-      text-decoration: none;
-      color: rgb(146, 152, 223);
-      font-size: 1.2rem;
-    }
+  padding: 0.5rem;
+  // margin: 1rem;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-style: dashed;
+  background-color: rgb(170, 165, 166);
+  border-color: rgb(247, 244, 249);
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
   }
 }
+.category-container {
+  display: flex;
+  box-shadow: 2px 2px 2px 2px rgba(123, 125, 119, 0.95);
+  // hide the scrollbar
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+
+  .category {
+    @include category-default();
+  }
+  .category-current {
+    @include category-default();
+  }
+}
+
 @media (max-width: 700px) {
   .category-container {
     position: fixed;
-    width: 3rem;
+    width: $siderBarInLeftWidth;
     overflow: auto;
-    // height: 100%;
-    // width: 100%;
     flex-direction: column;
     padding-bottom: $footerHeight;
+    margin-right: 2rem;
     top: 0;
     bottom: 0;
     .category {
-      // border-bottom: 1px;
       border-width: 0 0 1px 0;
       flex-shrink: 0;
+    }
+    .category-current {
+      border-width: 0 0 1px 0;
+      flex-shrink: 0;
+      background-color: rgba(224, 237, 235, 0.9);
+      border-color: rgb(28, 27, 27);
     }
   }
 }
@@ -44,8 +58,15 @@
   .category-container {
     width: 100%;
     flex-direction: row;
+    margin-bottom: 0.5rem;
+    // padding-right: 0.5rem;
     .category {
       border-width: 0 1px 0 0;
+    }
+    .category-current {
+      background-color: rgba(224, 237, 235, 0.9);
+      border-width: 0 1px 0 0;
+      border-color: rgb(28, 27, 27);
     }
   }
 }
