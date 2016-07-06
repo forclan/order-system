@@ -7,13 +7,14 @@ const DishList = (props) => {
   const dishListDOM = dishList.map(val =>
     <Dish
       price={val.price}
-      imgSrc={val.src}
+      imgSrc={val.hasOwnProperty('src') ? val.src : null}
       description={val.description}
       name={val.name}
       number={val.number}
       clickAdd={() => props.clickAdd(val.name)}
       clickMinus={() => props.clickMinus(val.name)}
       key={val.name}
+      isDirectionRow={false}
     />
   );
   return (

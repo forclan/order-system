@@ -24,23 +24,28 @@ class Cart extends React.Component {
           isDirectionRow
         />);
   }
-  getTotalPrice(arr) {
+  getTotalPrice(arr, keyName) {
+    if (arr.length === 0) {
+      return 0;
+    }
+    // const numberOver0 = arr.filter(val => val[keyName] > 0);
+    // console.log(numberOver0);
     return arr
-      .filter(val => val.num > 0)
-      .reduce((pre, curr) => pre + curr.num * curr.price, 0);
+      .filter(val => val[keyName] > 0)
+      .reduce((pre, curr) => pre + curr[keyName] * curr.price, 0);
   }
   render() {
-    const price = this.getTotalPrice(this.props.orderArray);
+    const price = this.getTotalPrice(this.props.orderArray, 'number');
     return (
       <footer>
         <div className="cart-container">
-          {/* <div className="cart-img"> */}
-          {/* </div> */}
+          <div className="cart-img">
+          </div>
           <div className="cart-total-price">
-            ￥{price}
+            <span>￥{price}</span>
           </div>
           <div className="cart-do-order">
-            去结算
+            <span>去结算</span>
           </div>
         </div>
       </footer>

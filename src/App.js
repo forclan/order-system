@@ -9,7 +9,7 @@ require('./App.scss');
 const cat = ['lunch', 'tea', 'hot-drinks', '1', '2', '3', '4', '5', '6'];
 const App = (props) => {
   let dishArray = [];
-  if (props.dishArray.length > 0) {
+  if (props.dishArrayWithOrderNum.length > 0) {
     dishArray = props.dishArrayWithOrderNum;
   }
   return (
@@ -36,31 +36,15 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  orders: PropTypes.array.isRequired,
-  dishArray: PropTypes.array.isRequired,
+  // orders: PropTypes.array.isRequired,
+  // dishArray: PropTypes.array.isRequired,
   addOrderBy1: PropTypes.func.isRequired,
   minusOrderBy1: PropTypes.func.isRequired,
   dishArrayWithOrderNum: PropTypes.array.isRequired,
 };
 
-const getDishArray = arr => arr;
+// const getDishArray = arr => arr;
 
-const getOrder = obj => {
-  if (obj === null) {
-    return null;
-  }
-  const asserts = [];
-  /* eslint no-restricted-syntax: ["off"] */
-  for (const i in obj) {
-    if (obj.hasOwnProperty) {
-      Array.prototype.push.call(asserts, {
-        id: i,
-        num: obj[i],
-      });
-    }
-  }
-  return asserts;
-};
 const getDishWithOrderNum = (dishArr, orders) => {
   const dishArrWithOrderNum = dishArr.map(val => {
     let orderNum = 0;
@@ -75,8 +59,8 @@ const getDishWithOrderNum = (dishArr, orders) => {
 };
 
 const mapStateToProps = (state) => ({
-  orders: getOrder(state.DishReducer.dishArray),
-  dishArray: getDishArray(state.DishReducer),
+  // orders: getOrder(state.DishReducer.dishArray),
+  // dishArray: getDishArray(state.DishReducer),
   dishArrayWithOrderNum: getDishWithOrderNum(state.DishReducer, state.OrderReducer),
 });
 

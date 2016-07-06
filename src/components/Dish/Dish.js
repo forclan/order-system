@@ -55,12 +55,12 @@ const Dish = (props) => {
 Dish.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  imgSrc: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
   description: PropTypes.string,
   number: PropTypes.number.isRequired,
   clickAdd: PropTypes.func.isRequired,
   clickMinus: PropTypes.func.isRequired,
-  isDirectionRow: PropTypes.boolean,
+  isDirectionRow: PropTypes.bool,
 };
 
 export default Dish;
