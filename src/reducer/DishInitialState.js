@@ -1,4 +1,4 @@
-export const initState = [
+const initialState = [
   {
     id: 1,
     name: 'apple',
@@ -24,3 +24,5 @@ export const initState = [
     name: '1123123',
     price: 23,
   }];
+
+export default initialState;
