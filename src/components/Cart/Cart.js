@@ -48,7 +48,11 @@ class Cart extends React.Component {
       <footer>
         <div className="cart-container">
           <div className="cart-img">
-            <div className="red-dot">{orderNumber}</div>
+            {
+              orderNumber > 0
+              ? <div className="red-dot">{orderNumber}</div>
+              : null
+            }
           </div>
           <div className="cart-total-price">
             <span>￥{price}</span>
