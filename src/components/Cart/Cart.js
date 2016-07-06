@@ -7,6 +7,7 @@ class Cart extends React.Component {
     super(props);
     this.getDOMArray = this.getDOMArray.bind(this);
     this.getTotalPrice = this.getTotalPrice.bind(this);
+    this.getTotalNumber = this.getTotalNumber.bind(this);
   }
   getDOMArray(arr) {
     return arr
@@ -24,6 +25,12 @@ class Cart extends React.Component {
           isDirectionRow
         />);
   }
+  getTotalNumber(arr, keyName) {
+    if (arr.length === 0) {
+      return 0;
+    }
+    return arr.filter(val => val[keyName] > 0).length;
+  }
   getTotalPrice(arr, keyName) {
     if (arr.length === 0) {
       return 0;
@@ -36,10 +43,12 @@ class Cart extends React.Component {
   }
   render() {
     const price = this.getTotalPrice(this.props.orderArray, 'number');
+    const orderNumber = this.getTotalNumber(this.props.orderArray, 'number');
     return (
       <footer>
         <div className="cart-container">
           <div className="cart-img">
+            <div className="red-dot">{orderNumber}</div>
           </div>
           <div className="cart-total-price">
             <span>￥{price}</span>

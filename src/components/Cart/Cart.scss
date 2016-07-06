@@ -13,15 +13,29 @@ footer {
   display: flex;
   // align-items: center;
   justify-content: space-around;
+  // position: relative;
   .cart-img {
-    // padding: 1rem;
     margin: 1rem;
-    // padding-right: 2rem;
     width: 3rem;
     height: 3rem;
     background-size: 3rem;
     background-image: url('../../assets/shopping-cart.png');
+    position: relative;
+    .red-dot {
+      height: 1rem;
+      width: 1rem;
+      border-radius: 1rem;
+      display: inline-block;
+      text-align:center;
+      font-size:0.8rem;
+      color:#fff;
+      background:red;
+      position: absolute;
+      top: -0.6rem;
+      right: -0.6rem;
+    }
   }
+
   .cart-total-price {
     display: flex;
     background-color: rgba(27, 252, 225, 0.76);
