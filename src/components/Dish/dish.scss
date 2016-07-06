@@ -29,7 +29,7 @@
   border: 1px solid rgb(222, 221, 228);
   border-radius: 3px;
   align-items: space-between;
-  margin: 0.5rem 0 0.5rem;
+  margin: 0rem 0 0.5rem;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   background-color: white;
   .dish-img {
@@ -61,3 +61,11 @@
     }
   }
 };
+@media screen and (max-width: 700px) {
+  .category-current {
+    font-size: 1rem;
+  }
+  .category {
+    font-size: 1rem;
+  }
+}
