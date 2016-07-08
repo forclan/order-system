@@ -29,13 +29,13 @@ footer {
     bottom: $footerHeight;
     overflow: auto;
     .dropdown-contents {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
       z-index: 101;
-      // opacity: 1;
-      // filter: opacity(0.4);
-      padding: 0.4rem;
-      overflow: scroll;
-      // bottom: 100%;
-      // width: 98%;
+      padding: 0.4rem 0.4rem 0;
+      overflow: auto;
     }
   }
   .cart-img {
