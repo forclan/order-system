@@ -19,6 +19,7 @@ footer {
   // align-items: center;
   justify-content: space-around;
   position: relative;
+  // justify-content: flex-end;
   .cart-dropdown {
     z-index: 100;
     position: fixed;
@@ -27,15 +28,21 @@ footer {
     top: 0;
     right: 0;
     bottom: $footerHeight;
-    overflow: auto;
+    overflow: scroll;
+    // display: flex;
+    // justify-content: end;
     .dropdown-contents {
+      // margin: auto;
+      // min-height: min-content;
+      // display: flex;
+      // flex-direction: column;
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       z-index: 101;
       padding: 0.4rem 0.4rem 0;
-      overflow: auto;
+      // overflow: scroll;
     }
   }
   .cart-img {
