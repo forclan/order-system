@@ -8,10 +8,14 @@ class Cart extends React.Component {
     this.getDOMArray = this.getDOMArray.bind(this);
     this.getTotalPrice = this.getTotalPrice.bind(this);
     this.getTotalNumber = this.getTotalNumber.bind(this);
+    this.getFiltedArrayByKeyName = this.getFiltedArrayByKeyName.bind(this);
+    this.triggerShade = this.triggerShade.bind(this);
+    this.state = {
+      enableShade: false,
+    };
   }
-  getDOMArray(arr) {
-    return arr
-      .filter(val => val.num > 0)
+  getDOMArray(arr, keyName) {
+    return this.getFiltedArrayByKeyName(arr, keyName)
       .map(val =>
         <DishMinView
           price={val.price}
@@ -19,35 +23,67 @@ class Cart extends React.Component {
           description={null}
           name={val.name}
           number={val.number}
-          clickAdd={() => this.props.clickAdd(val.name)}
-          clickMinus={() => this.props.clickMinus(val.name)}
+          // need to prevent bubble
+          clickAdd={
+            (e) => {
+              this.props.clickAdd(val.name);
+              e.stopPropagation();
+            }
+          }
+          clickMinus={
+            (e) => {
+              this.props.clickMinus(val.name);
+              e.stopPropagation();
+            }
+          }
           key={val.name}
           isDirectionRow
         />);
   }
-  getTotalNumber(arr, keyName) {
+  getFiltedArrayByKeyName(arr, keyName) {
     if (arr.length === 0) {
-      return 0;
+      return [];
     }
-    return arr.filter(val => val[keyName] > 0).length;
+    return arr.filter(val => val[keyName] > 0);
+  }
+  getTotalNumber(arr, keyName) {
+    return this.getFiltedArrayByKeyName(arr, keyName).length;
   }
   getTotalPrice(arr, keyName) {
-    if (arr.length === 0) {
-      return 0;
-    }
-    // const numberOver0 = arr.filter(val => val[keyName] > 0);
-    // console.log(numberOver0);
-    return arr
-      .filter(val => val[keyName] > 0)
+    return this.getFiltedArrayByKeyName(arr, keyName)
       .reduce((pre, curr) => pre + curr[keyName] * curr.price, 0);
+  }
+  triggerShade() {
+    this.setState({
+      enableShade: !this.state.enableShade,
+    });
+    // console.log(this.state.enableShade);
   }
   render() {
     const price = this.getTotalPrice(this.props.orderArray, 'number');
     const orderNumber = this.getTotalNumber(this.props.orderArray, 'number');
+    const dromDown = this.getDOMArray(this.props.orderArray, 'number');
+    const dropdownDisplayClass = this.state.enableShade
+      ? 'cart-dropdown show'
+      : 'cart-dropdown hide';
     return (
       <footer>
         <div className="cart-container">
-          <div className="cart-img">
+          <div
+            className={dropdownDisplayClass}
+            onClick={
+              (e) => {
+                console.log(e);
+                this.triggerShade();
+                e.stopPropagation();
+              }
+            }
+          >
+            <div className="dropdown-contents">
+              {dromDown}
+            </div>
+          </div>
+          <div className="cart-img" onClick={this.triggerShade}>
             {
               orderNumber > 0
               ? <div className="red-dot">{orderNumber}</div>

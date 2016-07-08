@@ -21,6 +21,9 @@
 
   .category {
     @include category-default();
+    // &:target {
+      // background-color: rgb(28, 175, 214);
+    // }
   }
   .category-current {
     @include category-default();

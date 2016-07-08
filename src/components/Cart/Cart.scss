@@ -7,13 +7,37 @@ footer {
   bottom: 0;
   height: $footerHeight;
   width: 100%;
-  overflow: hidden;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
 }
 .cart-container {
   display: flex;
   // align-items: center;
   justify-content: space-around;
-  // position: relative;
+  position: relative;
+  .cart-dropdown {
+    z-index: 100;
+    position: fixed;
+    background-color: rgba(1, 7, 15, 0.5);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: $footerHeight;
+    overflow: auto;
+    .dropdown-contents {
+      z-index: 101;
+      // opacity: 1;
+      // filter: opacity(0.4);
+      padding: 0.4rem;
+      overflow: scroll;
+      // bottom: 100%;
+      // width: 98%;
+    }
+  }
   .cart-img {
     margin: 1rem;
     width: 3rem;

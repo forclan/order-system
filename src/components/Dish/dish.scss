@@ -5,8 +5,13 @@
 }
 @mixin active-img($size) {
   @include img-size($size);
+  transition: transform 0.2s;
   &:active {
-    @include img-size($size + 0.2rem);
+    @include img-size($size);
+    transform: scale(1.3);
+  }
+  &:hover {
+    // transform: scale(2);
   }
 }
 @mixin dish-text-flex-direction($direction) {
@@ -35,6 +40,8 @@
   .dish-img {
     // align-self: flex-start;
     margin: 0.2rem;
+    transition: transform 1s;
+    transform: rotate(360);
   }
   .dish-text-column {
     @include dish-text-flex-direction(column);
