@@ -9,11 +9,18 @@ footer {
   width: 100%;
 }
 .show {
-  display: block;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  // visibility: visible;
 }
 .hide {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  // overflow: hidden;
 }
+
+
 .cart-container {
   display: flex;
   // align-items: center;
