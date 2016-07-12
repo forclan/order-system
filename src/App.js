@@ -5,6 +5,7 @@ import { addOrder } from './actions/addOrder.js';
 import { connect } from 'react-redux';
 import ShoppingCart from './components/Cart/Cart';
 require('./App.scss');
+// add Object.assign() polyfilee
 require('core-js/fn/object/assign');
 
 const cat = ['lunch', 'tea', 'hot-drinks', '1', '2', '3', '4', '5', '6'];

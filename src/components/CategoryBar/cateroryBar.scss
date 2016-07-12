@@ -30,7 +30,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media screen & (max-width: 700px) {
   .category-container {
     position: fixed;
     width: $siderBarInLeftWidth;
@@ -53,7 +53,7 @@
   }
 }
 
-@media (min-width: 700px) {
+@media screen & (min-width: 700px) {
   .category-container {
     width: 100%;
     flex-direction: row;

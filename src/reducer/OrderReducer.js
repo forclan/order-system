@@ -1,4 +1,5 @@
 import { ADD_ORDER } from '../actions/addOrder.js';
+// add Object.assign() polyfilee
 require('core-js/fn/object/assign');
 
 const OrderList = (state = {}, action) => {
