@@ -1,4 +1,5 @@
 import { ADD_ORDER } from '../actions/addOrder.js';
+require('core-js/fn/object/assign');
 
 const OrderList = (state = {}, action) => {
   switch (action.type) {
