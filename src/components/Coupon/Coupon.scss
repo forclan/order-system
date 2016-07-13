@@ -1,0 +1,25 @@
+.coupon {
+  display: flex;
+  border: 2px dashed black;
+  border-radius: 1rem;
+  background-clip: padding-box;
+  padding: 1rem;
+  margin: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  .discount {
+    color: red;
+    font-size: 1.2rem;
+    flex: 1;
+  }
+  .description {
+    color: rgb(162, 164, 164);
+    flex: 2;
+  }
+}
+
+.coupon-valid {
+  border: 2px dashed red;
+  background-color: rgb(93, 171, 134);
+}

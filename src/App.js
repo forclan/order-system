@@ -38,14 +38,10 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  // orders: PropTypes.array.isRequired,
-  // dishArray: PropTypes.array.isRequired,
   addOrderBy1: PropTypes.func.isRequired,
   minusOrderBy1: PropTypes.func.isRequired,
   dishArrayWithOrderNum: PropTypes.array.isRequired,
 };
-
-// const getDishArray = arr => arr;
 
 const getDishWithOrderNum = (dishArr, orders) => {
   const dishArrWithOrderNum = dishArr.map(val => {
@@ -61,8 +57,6 @@ const getDishWithOrderNum = (dishArr, orders) => {
 };
 
 const mapStateToProps = (state) => ({
-  // orders: getOrder(state.DishReducer.dishArray),
-  // dishArray: getDishArray(state.DishReducer),
   dishArrayWithOrderNum: getDishWithOrderNum(state.DishReducer, state.OrderReducer),
 });
 

@@ -41,7 +41,7 @@ module.exports = {
     filename: '[name].js',
     // library: 'shared-components',
     libraryTarget: 'umd',
-    publicPath: './lib/',
+    publicPath: '/lib/',
   },
   plugins,
   module: {

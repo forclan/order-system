@@ -57,8 +57,8 @@ class Cart extends React.Component {
     this.setState({
       enableShade: !this.state.enableShade,
     });
-    // console.log(this.state.enableShade);
   }
+
   render() {
     const price = this.getTotalPrice(this.props.orderArray, 'number');
     const orderNumber = this.getTotalNumber(this.props.orderArray, 'number');
@@ -73,7 +73,6 @@ class Cart extends React.Component {
             className={dropdownDisplayClass}
             onClick={
               (e) => {
-                console.log(e);
                 this.triggerShade();
                 e.stopPropagation();
               }
@@ -90,7 +89,7 @@ class Cart extends React.Component {
               : null
             }
           </div>
-          <div className="cart-total-price">
+          <div className="cart-total-price" onClick={this.triggerShade}>
             <span>￥{price}</span>
           </div>
           <div className="cart-do-order">
