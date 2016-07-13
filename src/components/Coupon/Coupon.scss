@@ -1,6 +1,6 @@
 .coupon {
   display: flex;
-  border: 2px dashed black;
+  // border: 2px dashed black;
   border-radius: 1rem;
   background-clip: padding-box;
   padding: 1rem;
@@ -21,6 +21,5 @@
 }
 
 .coupon-valid {
-  border: 2px dashed red;
   background-color: rgb(93, 171, 134);
 }
