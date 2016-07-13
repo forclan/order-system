@@ -31,6 +31,7 @@ const App = (props) => {
       </div>
       <ShoppingCart
         orderArray={props.dishArrayWithOrderNum}
+        couponArray={props.couponArray}
         clickAdd={props.addOrderBy1}
         clickMinus={props.minusOrderBy1}
       />
@@ -42,6 +43,7 @@ App.propTypes = {
   addOrderBy1: PropTypes.func.isRequired,
   minusOrderBy1: PropTypes.func.isRequired,
   dishArrayWithOrderNum: PropTypes.array.isRequired,
+  couponArray: PropTypes.array.isRequired,
 };
 
 const getDishWithOrderNum = (dishArr, orders) => {

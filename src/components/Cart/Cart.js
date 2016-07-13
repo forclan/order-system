@@ -1,20 +1,22 @@
 import React, { PropTypes } from 'react';
 import DishMinView from '../Dish/Dish';
+import CouponList from '../CouponList/CouponList.js';
 require('./Cart.scss');
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.getDOMArray = this.getDOMArray.bind(this);
+    this.getDOMArray = this.getOrderDOMArray.bind(this);
     this.getTotalPrice = this.getTotalPrice.bind(this);
     this.getTotalNumber = this.getTotalNumber.bind(this);
     this.getFiltedArrayByKeyName = this.getFiltedArrayByKeyName.bind(this);
     this.triggerShade = this.triggerShade.bind(this);
+    this.setDisplay = this.setDisplay.bind(this);
     this.state = {
       enableShade: false,
     };
   }
-  getDOMArray(arr, keyName) {
+  getOrderDOMArray(arr, keyName) {
     return this.getFiltedArrayByKeyName(arr, keyName)
       .map(val =>
         <DishMinView
@@ -53,16 +55,47 @@ class Cart extends React.Component {
     return this.getFiltedArrayByKeyName(arr, keyName)
       .reduce((pre, curr) => pre + curr[keyName] * curr.price, 0);
   }
-  triggerShade() {
+  setDisplay(val) {
     this.setState({
-      enableShade: !this.state.enableShade,
+      enableShade: true,
+      currentDisplay: val,
     });
   }
-
+  hideShade() {
+    this.setState({
+      enableShade: false,
+      currentDisplay: this.state.currentDisplay,
+    });
+  }
+  triggerShade(val) {
+    let nextShadeState = false;
+    const preShadeState = this.state.enableShade;
+    // 如果之前为为显示或者点击不同的标签，则切换为显示
+    if (preShadeState === false || val !== this.state.currentDisplay) {
+      nextShadeState = true;
+    } else if (val === undefined || val === this.state.currentDisplay) {
+      // 如果val为空（说明是点击背景）或者点击相同的标签，则不显示
+      nextShadeState = false;
+    }
+    this.setState({
+      enableShade: nextShadeState,
+      // currentDisplay: this.state.currentDisplay,
+      currentDisplay: val,
+    });
+  }
   render() {
     const price = this.getTotalPrice(this.props.orderArray, 'number');
     const orderNumber = this.getTotalNumber(this.props.orderArray, 'number');
-    const dromDown = this.getDOMArray(this.props.orderArray, 'number');
+    const minViewDropDown = this.getOrderDOMArray(this.props.orderArray, 'number');
+    const couponDropDown = <CouponList couponArray={this.props.couponArray} />;
+    let currentDisplay = null;
+    const stateDisplay = this.state.currentDisplay;
+    if (stateDisplay === 'minView') {
+      currentDisplay = minViewDropDown;
+    }
+    if (stateDisplay === 'coupon') {
+      currentDisplay = couponDropDown;
+    }
     const dropdownDisplayClass = this.state.enableShade
       ? 'cart-dropdown show'
       : 'cart-dropdown hide';
@@ -73,27 +106,42 @@ class Cart extends React.Component {
             className={dropdownDisplayClass}
             onClick={
               (e) => {
-                this.triggerShade();
+                this.hideShade();
                 e.stopPropagation();
               }
             }
           >
             <div className="dropdown-contents">
-              {dromDown}
+              {currentDisplay}
             </div>
           </div>
-          <div className="cart-img" onClick={this.triggerShade}>
+          <div
+            className="cart-img"
+            onClick={() => {
+              this.triggerShade('minView');
+            }}
+          >
             {
               orderNumber > 0
               ? <div className="red-dot">{orderNumber}</div>
               : null
             }
           </div>
-          <div className="cart-total-price" onClick={this.triggerShade}>
+          <div
+            className="cart-total-price"
+            onClick={() => {
+              this.triggerShade('minView');
+            }}
+          >
             <span>￥{price}</span>
           </div>
-          <div className="cart-do-order">
-            <span>去结算</span>
+          <div
+            className="cart-do-order"
+            onClick={() => {
+              this.triggerShade('coupon');
+            }}
+          >
+            <span>优惠券/结算</span>
           </div>
         </div>
       </footer>
@@ -102,6 +150,7 @@ class Cart extends React.Component {
 }
 Cart.propTypes = {
   orderArray: PropTypes.array.isRequired,
+  couponArray: PropTypes.array.isRequired,
   clickAdd: PropTypes.func.isRequired,
   clickMinus: PropTypes.func.isRequired,
 };

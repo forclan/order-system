@@ -6,7 +6,7 @@ const Coupon = props => {
   return (
     <div className={validStyle}>
       <div className="discount">
-        {discount}
+        {discount}元优惠券
       </div>
       {
         description
