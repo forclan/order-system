@@ -4,7 +4,7 @@ import CategoryBar from './components/CategoryBar/CategoryBar';
 import { addOrder } from './actions/addOrder.js';
 import { connect } from 'react-redux';
 import ShoppingCart from './components/Cart/Cart';
-import triggerCoupon from './actions/triggerCoupon.js';
+import { triggerCoupon } from './actions/triggerCoupon.js';
 require('./App.scss');
 // add Object.assign() polyfilee
 require('core-js/fn/object/assign');
@@ -34,6 +34,7 @@ const App = (props) => {
         couponArray={props.couponArray}
         clickAdd={props.addOrderBy1}
         clickMinus={props.minusOrderBy1}
+        triggerCouponWithId={props.triggerCouponWithId}
       />
     </div>
   );
@@ -44,6 +45,7 @@ App.propTypes = {
   minusOrderBy1: PropTypes.func.isRequired,
   dishArrayWithOrderNum: PropTypes.array.isRequired,
   couponArray: PropTypes.array.isRequired,
+  triggerCouponWithId: PropTypes.func.isRequired,
 };
 
 const getDishWithOrderNum = (dishArr, orders) => {
@@ -68,7 +70,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addOrderBy1: id => dispatch(addOrder(id, 1)),
   minusOrderBy1: id => dispatch(addOrder(id, -1)),
-  triggerCoupon: id => dispatch(triggerCoupon(id)),
+  triggerCouponWithId: id => dispatch(triggerCoupon(id)),
 });
 
 const VisibleDash = connect(

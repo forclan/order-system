@@ -87,7 +87,15 @@ class Cart extends React.Component {
     const price = this.getTotalPrice(this.props.orderArray, 'number');
     const orderNumber = this.getTotalNumber(this.props.orderArray, 'number');
     const minViewDropDown = this.getOrderDOMArray(this.props.orderArray, 'number');
-    const couponDropDown = <CouponList couponArray={this.props.couponArray} />;
+    const couponClickWithId = (id) => {
+      this.props.triggerCouponWithId(id);
+    };
+    const couponDropDown = (
+      <CouponList
+        couponArray={this.props.couponArray}
+        couponClickWithId={couponClickWithId}
+      />
+    );
     let currentDisplay = null;
     const stateDisplay = this.state.currentDisplay;
     if (stateDisplay === 'minView') {
@@ -153,6 +161,7 @@ Cart.propTypes = {
   couponArray: PropTypes.array.isRequired,
   clickAdd: PropTypes.func.isRequired,
   clickMinus: PropTypes.func.isRequired,
+  triggerCouponWithId: PropTypes.func.isRequired,
 };
 
 export default Cart;
