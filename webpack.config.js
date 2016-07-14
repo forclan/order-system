@@ -12,13 +12,12 @@ let plugins = [
   })];
 let devtool = [];
 let externals = {
-      // 'react': 'react',
-      // 'react-dom': 'react-dom',
-      // 'redux': 'redux',
-      // 'react-redux': 'react-redux'
+  react: 'React',
+  'react-dom': 'ReactDOM',
+  redux: 'Redux',
+  'react-redux': 'ReactRedux',
 };
 
-// console.log('is deploy?' + isProduction);
 if (isDevelopment) {
   entry = [
     'webpack-dev-server/client?http://localhost:3000',
@@ -31,7 +30,6 @@ if (isDevelopment) {
 }
 
 module.exports = {
-  // devtool: isProduction ? 'eval' : null,
   devtool,
   entry: {
     App: entry,
