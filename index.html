@@ -1,17 +1,17 @@
 <DOCTYPE html>
 <html>
   <head>
-    <script src="./script/basket.full.min.js" charset="utf-8"></script>
+    <script src="./scripts/basket.full.min.js" charset="utf-8"></script>
     <script type="text/javascript">
       basket
-        .require({ url: './script/react.min.js' }
-        , {url: './script/react-dom.min.js'}
-        , {url: './script/redux.min.js'}
-        , {url: './script/react-redux.min.js'}
+        .require({ url: './scripts/react.min.js' }
+        , {url: './scripts/react-dom.min.js'}
+        , {url: './scripts/redux.min.js'}
+        , {url: './scripts/react-redux.min.js'}
       )
         .then(function() {
           var appScript = document.createElement('script');
-          appScript.src = './script/App.js';
+          appScript.src = './scripts/App.js';
           appScript.type = 'text/javascript';
           var head = document.getElementsByTagName('head').item(0);
           head.appendChild(appScript);
