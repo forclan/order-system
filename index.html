@@ -1,17 +1,17 @@
 <DOCTYPE html>
 <html>
   <head>
-    <script src="./js/basket.full.min.js" charset="utf-8"></script>
+    <script src="./script/basket.full.min.js" charset="utf-8"></script>
     <script type="text/javascript">
       basket
-        .require({ url: './js/react.min.js' }
-        , {url: './js/react-dom.min.js'}
-        , {url: './js/redux.min.js'}
-        , {url: './js/react-redux.min.js'}
+        .require({ url: './script/react.min.js' }
+        , {url: './script/react-dom.min.js'}
+        , {url: './script/redux.min.js'}
+        , {url: './script/react-redux.min.js'}
       )
         .then(function() {
           var appScript = document.createElement('script');
-          appScript.src = './js/App.js';
+          appScript.src = './script/App.js';
           appScript.type = 'text/javascript';
           var head = document.getElementsByTagName('head').item(0);
           head.appendChild(appScript);
@@ -23,12 +23,5 @@
   <body>
     <div id="app">
     </div>
-
-    <!-- <script src="./js/react.min.js" charset="utf-8"></script>
-    <script src="./js/react-dom.min.js" charset="utf-8"></script>
-    <script src="./js/redux.min.js" charset="utf-8"></script>
-    <script src="./js/react-redux.min.js" charset="utf-8"></script> -->
-    <!-- <script src="./lib/App.js" defer="defer"> -->
-    </script>
   </body>
 </html>
