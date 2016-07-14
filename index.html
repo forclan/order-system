@@ -1,13 +1,40 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <script src="./js/basket.full.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      basket
+        .require({ url: './js/react.min.js' }
+        , {url: './js/react-dom.min.js'}
+        , {url: './js/redux.min.js'}
+        , {url: './js/react-redux.min.js'}
+      )
+        .then(function() {
+          var appScript = document.createElement('script');
+          appScript.src = './lib/App.js';
+          appScript.type = 'text/javascript';
+          var head = document.getElementsByTagName('head').item(0);
+          head.appendChild(appScript);
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
   </head>
 
   <body>
     <div id="app">
     </div>
-    <script src="./lib/App.js">
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/basket.js/0.5.2/basket.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.5.2/redux.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/basket.js/0.5.2/basket.full.min.js"></script> -->
+
+    <!-- <script src="./js/react.min.js" charset="utf-8"></script>
+    <script src="./js/react-dom.min.js" charset="utf-8"></script>
+    <script src="./js/redux.min.js" charset="utf-8"></script>
+    <script src="./js/react-redux.min.js" charset="utf-8"></script> -->
+    <!-- <script src="./lib/App.js" defer="defer"> -->
     </script>
   </body>
 </html>
