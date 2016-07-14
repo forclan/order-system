@@ -35,11 +35,11 @@ module.exports = {
     App: entry,
   },
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, 'js'),
     filename: '[name].js',
     // library: 'shared-components',
     libraryTarget: 'umd',
-    publicPath: '/lib/',
+    publicPath: '/js/',
   },
   plugins,
   module: {
