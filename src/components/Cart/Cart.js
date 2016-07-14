@@ -144,12 +144,15 @@ class Cart extends React.Component {
             <span>￥{price}</span>
           </div>
           <div
-            className="cart-do-order"
+            className="cart-coupon"
             onClick={() => {
               this.triggerShade('coupon');
             }}
           >
-            <span>优惠券/结算</span>
+            <span>选择优惠券</span>
+          </div>
+          <div className="cart-do-order">
+            结算
           </div>
         </div>
       </footer>

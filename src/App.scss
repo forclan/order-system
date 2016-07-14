@@ -2,9 +2,9 @@
 // import footerHeight and sideBar's width
 @import "./const/constVaule.scss";
 // hide all scrollbar
-// ::-webkit-scrollbar {
-//     display: none;
-// }
+::-webkit-scrollbar {
+    display: none;
+}
 body {
   // background-color: rgba(146, 240, 203, 0.88);
 }
